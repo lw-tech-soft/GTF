@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <direct.h>
 #include <TLHelp32.h>
+#include <io.h>
 
 using namespace std;
 
@@ -49,8 +50,19 @@ bool KillMythware(const wstring& ntsdpath)
 
 bool SetMythwareRootPath(const wstring& newRootPath)
 {
+	if (_waccess(newRootPath.c_str(), 0) == -1)
+		return false;
 	MythwareRootPath = newRootPath;
 	if (MythwareRootPath[MythwareRootPath.length() - 1] != L'\\' && MythwareRootPath[MythwareRootPath.length() - 1] != L'/')
 		MythwareRootPath += L'\\';
+	return true;
+}
+
+bool SetMythwareMainProgramName(const wstring& newMainProgramName)
+{
+	if (_waccess((MythwareRootPath + newMainProgramName).c_str(), 0) == -1)
+		return false;
+	MythwareMainProgramName = newMainProgramName;
+	return 0;
 }
 #endif

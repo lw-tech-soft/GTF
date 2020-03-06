@@ -13,12 +13,15 @@ LR"(GTF - Console
 const wstring HelpWord =
 LR"(GTF [Commands] [Arguments]
 
-exit          退出GTF
-help          获取帮助
-kill          结束mythware
-mythpath      查看/设置mythware的路径
-mythexename   查看/设置mythware主程序文件名
-
+exit
+  -default                             退出GTF
+help
+  -default                             获取帮助
+kill
+  -default                             结束mythware
+mythpath      
+  -无参数                              查看当前mythware的路径
+  -[RootPath] [MainProgramPath]        设置mythware的路径,不需改变的参数用%代替
 )";
 
 const wstring BadCommandWord =
@@ -29,10 +32,7 @@ LR"(不正确的命令!
 
 const wstring ErrWord = L"程序遇到错误,退出!";
 
-//3 bools for GetCommand()
-bool read_success = 0;
 bool read_end_line = 0;
-bool read_err_quo = 0;
-
-void GetCommand(wstring&);
+bool GetCommand(wstring&);
+void Mythpath();
 #endif
