@@ -5,7 +5,7 @@
 const wstring WelcomeWord =
 LR"(GTF - Console
  - Version:2.0.0000
- - Product By LTSlw
+ - Product By LTSlw & LTSyc.
 =====================================
 
 )";
@@ -13,15 +13,23 @@ LR"(GTF - Console
 const wstring HelpWord =
 LR"(GTF [Commands] [Arguments]
 
+about
+  -无参数                              查看制作者的信息
 exit
-  -default                             退出GTF
+  -无参数                              退出GTF
+getpid
+  -无参数                              查看极域进程ID
 help
-  -default                             获取帮助
+  -无参数                              获取帮助
 kill
-  -default                             结束mythware
+  -无参数                              结束极域
 mythpath      
-  -无参数                              查看当前mythware的路径
-  -[RootPath] [MainProgramPath]        设置mythware的路径,不需改变的参数用%代替
+  -无参数                              查看当前极域的路径
+  -[RootPath] [MainProgramPath]        设置极域的路径,不需改变的参数用%代替
+window
+  -[statu](start/stop)                 开启/关闭屏幕广播窗口化
+mini
+  -[statu](start/stop)                 最小化
 )";
 
 const wstring BadCommandWord =

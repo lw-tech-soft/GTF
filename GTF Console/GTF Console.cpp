@@ -10,6 +10,7 @@ int main()
 {
 	setlocale(LC_ALL, "chs"); //use gbk to support chinese
 	if (!GetAppPath()) { wcerr << ErrWord; return ERR_LOAD; }
+	NtsdPath = AppPath + L"\\ntsd.exe";
 	wcout << WelcomeWord;
 	while (1)
 	{
@@ -21,7 +22,7 @@ int main()
 		if (command == L"help")
 			wcout << HelpWord;
 		else if (command == L"kill")
-			KillMythware(AppPath + L"\\ntsd.exe");
+			KillMythware();
 		else if (command == L"mythpath")
 			Mythpath();
 		else if (command == L"exit")
